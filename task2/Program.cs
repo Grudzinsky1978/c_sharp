@@ -14,3 +14,35 @@
 //         вернуть ack(n - 1, 1)
 //     ещё
 //         вернуть ack(n - 1, ack(n, m - 1))
+
+int funcAckermann(int numf, int nums)
+{
+    if (numf == 0)
+    {
+        return nums + 1;
+    }
+    if (nums == 0)
+    {
+        return funcAckermann(numf - 1, 1);
+    }
+    return funcAckermann(numf - 1, funcAckermann(numf, nums - 1));
+}
+
+Console.WriteLine("Введите 1-е натуральное число для вычисления функции Аккермана: ");
+int naturalnumberfirst = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Введите 2-е натуральное число для вычисления функции Аккермана: ");
+int naturalnumbersecond = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine(funcAckermann(naturalnumberfirst, naturalnumbersecond));
+
+// Тестовые значения
+// 0, 0 => 1
+// 0, 1 => 2
+// 1, 1 => 3
+// 1, 2 => 4
+// 2, 2 => 7
+// 2, 3 => 9
+// 3, 3 => 61
+// 3, 4 => 125
+// 3, 5 => 253
