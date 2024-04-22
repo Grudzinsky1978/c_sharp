@@ -34,11 +34,19 @@ int naturalnumberstart = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите натуральное число — конец желаемого диапазона всех натуральных чисел: ");
 int naturalnumberend = Convert.ToInt32(Console.ReadLine());
 
-if (naturalnumberstart < naturalnumberend)
+if (naturalnumberstart > 0 && naturalnumberend > 0)
 {
-    PrintNaturalNumbersLH(naturalnumberstart, naturalnumberend);    
+
+    if (naturalnumberstart < naturalnumberend)
+    {
+        PrintNaturalNumbersLH(naturalnumberstart, naturalnumberend);
+    }
+    else
+    {
+        PrintNaturalNumbersHL(naturalnumberend, naturalnumberstart);
+    }
 }
 else
 {
-    PrintNaturalNumbersHL(naturalnumberend, naturalnumberstart);
+    Console.WriteLine("Число должно быть больше нуля!");
 }
